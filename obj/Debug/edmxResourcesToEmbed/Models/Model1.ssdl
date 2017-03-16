@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="KnownName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmergencyContact1Id" Type="int" />
+    <Property Name="EmergencyContact2Id" Type="int" />
+    <Property Name="YearEnrolled" Type="int" />
+    <Property Name="Ethnicity" Type="nvarchar" MaxLength="50" />
+    <Property Name="LanguageSpoken" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustodyDispute" Type="bit" />
+    <Property Name="CustodyDisputeDescription" Type="nvarchar(max)" />
+    <Property Name="WearsGlasses" Type="bit" />
+    <Property Name="HearingAid" Type="bit" />
+    <Property Name="Instructions" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="SchoolId" Type="int" />
+    <Property Name="AllowPhotoTag" Type="bit" />
+    <Property Name="ClassRoom" Type="nvarchar" MaxLength="50" />
+    <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CYF" Type="bit" />
+    <Property Name="CYFDescription" Type="nvarchar(max)" />
+    <Property Name="IsVegererian" Type="bit" />
+    <Property Name="GlutenFree" Type="bit" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="ChildDoctorName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChildDoctorContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsTetanusImmunised" Type="bit" />
+    <Property Name="SwimmingCompetency" Type="varchar" MaxLength="50" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="Year" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Child_Condition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="ConditionId" Type="int" />
+    <Property Name="OtherName" Type="nvarchar(max)" />
+    <Property Name="OtherTypeId" Type="int" />
+    <Property Name="Severity" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoctorContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="Symptoms" Type="nvarchar(max)" />
+    <Property Name="TreatmentDesc" Type="nvarchar(max)" />
+    <Property Name="MedicationDesc" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Child_Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChildId" Type="int" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="CanPickup" Type="bit" />
+    <Property Name="ActionOnAppear" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GenderId" Type="int" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="SignatureImage" Type="image" />
+    <Property Name="Landline" Type="nvarchar" MaxLength="50" />
+    <Property Name="Office" Type="nvarchar" MaxLength="50" />
+    <Property Name="OfficeExtension" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="StreetNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Suburb" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingStreetNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="BillingSuburb" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingPostcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="BillingCountry" Type="nvarchar" MaxLength="50" />
+    <Property Name="OscarNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReviewDate" Type="datetime" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+    <Property Name="HowHear" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lat" Type="varchar" MaxLength="50" />
+    <Property Name="Lng" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="FirstAidCheck" Type="bit" Nullable="false" />
+    <Property Name="FirstAidExpireyDate" Type="datetime" />
+    <Property Name="PoliceCheck" Type="bit" Nullable="false" />
+    <Property Name="PoliceCheckExprieyDate" Type="datetime" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="DriverLicence" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntityName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Index" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Org">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="SchoolId" Type="int" />
+    <Property Name="OldId" Type="int" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="TypeId" Type="int" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="TerritoryId" Type="int" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="Decile" Type="int" />
+    <Property Name="Roll" Type="int" />
+    <Property Name="RollApproved" Type="int" />
+    <Property Name="LeaseStart" Type="date" />
+    <Property Name="LeaseEnd" Type="date" />
+    <Property Name="LeasorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LeaseCostFixed" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MeetingRoom" Type="nvarchar" MaxLength="100" />
+    <Property Name="BankAccNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="MsdNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="OscarNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+    <Property Name="ExtraChargeType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtraMinRate" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BeforeThreshold" Type="int" />
+    <Property Name="AfterThreshold" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdateOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="HasSaved" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="LicenceStart" Type="datetime" />
+    <Property Name="LicenceEnd" Type="datetime" />
+    <Property Name="WeeklyAdminCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WeeklyRentCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CurrentRevenue" Type="money" />
+    <Property Name="CurrentExpenses" Type="money" />
+    <Property Name="CurrentBalance" Type="money" />
+    <Property Name="CurrentOverdueAmt" Type="money" />
+    <Property Name="MasterPin" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsChildPhotoEnabled" Type="bit" />
+    <Property Name="IsAuthPhotoEnabled" Type="bit" />
+    <Property Name="IsStaffPhotoEnabled" Type="bit" />
+    <Property Name="IsMultiSitePickupEnabled" Type="bit" />
+    <Property Name="IsFreeTrial" Type="bit" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="StaffClockMethod" Type="nvarchar" MaxLength="50" />
+    <Property Name="LeaseCostPercentage" Type="int" />
+    <Property Name="IsPaymentGatewayEnabled" Type="bit" />
+    <Property Name="SiteBankAccNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="LicenceFee" Type="money" />
+    <Property Name="IsDashboardMsgEnabled" Type="bit" />
+    <Property Name="IsEMailMsgEnabled" Type="bit" />
+    <Property Name="IsSMSMsgEnabled" Type="bit" />
+    <Property Name="SiteContactPersone" Type="nvarchar" MaxLength="100" />
+    <Property Name="SiteContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteContactEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="InvoiceDateSetting" Type="bit" Nullable="false" />
+    <Property Name="HeadOfficeLogo" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsWizard" Type="bit" />
+    <Property Name="LastStep" Type="int" />
+    <Property Name="IsProgrammePriceVisible" Type="bit" />
+    <Property Name="IsBookingPromoMsgVisible" Type="bit" />
+    <Property Name="BookingPromotionMsg" Type="nvarchar(max)" />
+    <Property Name="IsHolBookingPromoMsgVisible" Type="bit" />
+    <Property Name="HolBookingPromoMsg" Type="nvarchar(max)" />
+    <Property Name="IsSpecialBookingPromoMsgVisible" Type="bit" />
+    <Property Name="SpecialBookingPromoMsg" Type="nvarchar(max)" />
+    <Property Name="LoginURL" Type="nvarchar" MaxLength="550" />
+    <Property Name="ShowCustomisedBooking" Type="bit" Nullable="false" />
+    <Property Name="InvoiceDay" Type="int" />
+    <Property Name="InvoiceDueDays" Type="int" />
+    <Property Name="InvoiceGenDay" Type="int" Nullable="false" />
+    <Property Name="InvoiceGenWeek" Type="int" Nullable="false" />
+    <Property Name="InvoiceDueDay" Type="int" Nullable="false" />
+    <Property Name="InvoiceDueWeek" Type="int" Nullable="false" />
+    <Property Name="IsInvArrearBasedOnStart" Type="bit" />
+    <Property Name="CSSBillingPlanId" Type="int" />
+    <Property Name="CSSRevireDate" Type="datetime" />
+    <Property Name="CSSComment" Type="varchar(max)" />
+    <Property Name="BookingInfoRegular" Type="nvarchar" MaxLength="200" />
+    <Property Name="BookingInfoCasual" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsNew" Type="bit" />
+    <Property Name="CurrentStatus" Type="int" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+    <Property Name="AllowOverdueNotification" Type="bit" />
+    <Property Name="IsCreditCardPaymentDisabled" Type="bit" />
+    <Property Name="NewChildFlagDays" Type="int" />
+    <Property Name="ExclusionDayIsChargeable" Type="bit" />
+    <Property Name="IsAimyClient" Type="bit" />
+    <Property Name="CustomisedBookingCalendarReadOnly" Type="bit" />
+    <Property Name="ShowParentDOB" Type="bit" />
+    <Property Name="IsMergeReconcilInvoice" Type="bit" />
+    <Property Name="IsDeductByCCPayment" Type="bit" />
+    <Property Name="SiteLandlineNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteStreetNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="SiteSuburb" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="SitePostCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteCountry" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiteLatitude" Type="nvarchar" MaxLength="250" />
+    <Property Name="SiteLongitude" Type="nvarchar" MaxLength="250" />
+    <Property Name="TimeZoneIdentifier" Type="nvarchar" MaxLength="250" />
+    <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Language" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Org_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsInSubsidy" Type="bit" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsBlackListed" Type="bit" />
+    <Property Name="HasMissingSignature" Type="bit" />
+    <Property Name="IsEziDebitSetup" Type="bit" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EwayCustomerId" Type="bigint" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+    <Property Name="CanLogin" Type="bit" Nullable="false" />
+    <Property Name="EmailConfirmationToken" Type="nvarchar(max)" />
+    <Property Name="IsEmailConfirmationValid" Type="bit" />
+    <Property Name="PasswordResetToken" Type="nvarchar(max)" />
+    <Property Name="IsPswResetTokenValid" Type="bit" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+    <Property Name="StaffPayrollLatSyncOn" Type="datetime" />
+    <Property Name="StaffCostPerHour" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalHoursToBeSync" Type="int" />
+    <Property Name="Colour" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsOrgAdmin" Type="bit" Nullable="false" />
+    <Property Name="WorkStartDate" Type="datetime" />
+    <Property Name="WorkEndDate" Type="datetime" />
+    <Property Name="CurrentOrgId" Type="int" />
+    <Property Name="LastLogedOn" Type="datetime" />
+    <Property Name="RetryAttempt" Type="int" />
+    <Property Name="SysAdmin" Type="bit" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="PasswordBackup" Type="varchar" MaxLength="500" />
+    <Property Name="EmployeeId" Type="nvarchar" MaxLength="10" />
+    <Property Name="QuickRegistered" Type="bit" />
+    <Property Name="RequiredPasswordChange" Type="bit" />
+    <Property Name="IsKPFClient" Type="bit" />
+    <Property Name="IsAimyClient" Type="bit" />
+    <Property Name="IsIncompleteProfile" Type="bit" />
+    <Property Name="ShowFavourites" Type="bit" />
+    <Property Name="TimeZoneIdentifier" Type="nvarchar" MaxLength="250" />
+    <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Language" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImportReference" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User_Child">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ChildId" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="ContactId" Type="int" />
+    <Property Name="ContactTypeId" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Child_Condition_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="Child_Condition" Type="Self.Child_Condition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child_Condition">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Contact">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Contact_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+    <End Role="Child_Contact" Type="Self.Child_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child_Contact">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Contact_Contact">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Child_Contact" Type="Self.Child_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child_Contact">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_EmergencyContact1">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="EmergencyContact1Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_EmergencyContact2">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="EmergencyContact2Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Org_Contact">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="Org" Type="Self.Org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Org">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Org_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+    <End Role="Org" Type="Self.Org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Org">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Org_Org">
+    <End Role="Org" Type="Self.Org" Multiplicity="0..1" />
+    <End Role="Org1" Type="Self.Org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Org">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Org1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Org_User_Org">
+    <End Role="Org" Type="Self.Org" Multiplicity="1" />
+    <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Org">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Org_User">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Org_User_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Org_User">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Child_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+    <End Role="User_Child" Type="Self.User_Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Child">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Child_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User_Child" Type="Self.User_Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Child">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Contact">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Contact_Contact">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+    <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Contact">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Contact_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+    <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Contact">
+        <PropertyRef Name="ContactTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Contact_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Contact">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Lookup">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child_Condition" EntityType="Self.Child_Condition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child_Contact" EntityType="Self.Child_Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Org" EntityType="Self.Org" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Org_User" EntityType="Self.Org_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Child" EntityType="Self.User_Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Contact" EntityType="Self.User_Contact" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Child_Condition_Child" Association="Self.FK_Child_Condition_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Child_Condition" EntitySet="Child_Condition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Contact" Association="Self.FK_Child_Contact">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Contact_Child" Association="Self.FK_Child_Contact_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Child_Contact" EntitySet="Child_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Contact_Contact" Association="Self.FK_Child_Contact_Contact">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Child_Contact" EntitySet="Child_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_EmergencyContact1" Association="Self.FK_Child_EmergencyContact1">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_EmergencyContact2" Association="Self.FK_Child_EmergencyContact2">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_Lookup" Association="Self.FK_Contact_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Org_Contact" Association="Self.FK_Org_Contact">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Org" EntitySet="Org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Org_Lookup" Association="Self.FK_Org_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Org" EntitySet="Org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Org_Org" Association="Self.FK_Org_Org">
+      <End Role="Org" EntitySet="Org" />
+      <End Role="Org1" EntitySet="Org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Org_User_Org" Association="Self.FK_Org_User_Org">
+      <End Role="Org" EntitySet="Org" />
+      <End Role="Org_User" EntitySet="Org_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Org_User_User" Association="Self.FK_Org_User_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Org_User" EntitySet="Org_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Child_Child" Association="Self.FK_User_Child_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="User_Child" EntitySet="User_Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Child_User" Association="Self.FK_User_Child_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Child" EntitySet="User_Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Contact" Association="Self.FK_User_Contact">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Contact_Contact" Association="Self.FK_User_Contact_Contact">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="User_Contact" EntitySet="User_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Contact_Lookup" Association="Self.FK_User_Contact_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="User_Contact" EntitySet="User_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Contact_User" Association="Self.FK_User_Contact_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Contact" EntitySet="User_Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Lookup" Association="Self.FK_User_Lookup">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

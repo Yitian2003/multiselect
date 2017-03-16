@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31647b9e44194cbfb4a6d6d643a3ba84" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Lookup" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Org" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Org_User" Width="1.5" PointX="10.5" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User_Contact" Width="1.5" PointX="3.875" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Contact_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Org_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Contact_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Org_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Contact_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Lookup" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Org_Org" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Org_User_Org" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Org_User_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_User_Contact_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.User_Child" Width="1.5" PointX="7.5" PointY="32.375" />
+        <AssociationConnector Association="Model.FK_User_Child_User" />
+        <EntityTypeShape EntityType="Model.Child" Width="1.5" PointX="5.25" PointY="26.375" />
+        <AssociationConnector Association="Model.FK_Child_Contact" />
+        <AssociationConnector Association="Model.FK_Child_EmergencyContact1" />
+        <AssociationConnector Association="Model.FK_Child_EmergencyContact2" />
+        <AssociationConnector Association="Model.FK_User_Child_Child" />
+        <EntityTypeShape EntityType="Model.Child_Condition" Width="1.5" PointX="7.5" PointY="35.875" />
+        <EntityTypeShape EntityType="Model.Child_Contact" Width="1.5" PointX="10.5" PointY="23.25" />
+        <AssociationConnector Association="Model.FK_Child_Condition_Child" />
+        <AssociationConnector Association="Model.FK_Child_Contact_Child" />
+        <AssociationConnector Association="Model.FK_Child_Contact_Contact" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

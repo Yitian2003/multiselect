@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <div>
+        <input id="multiselect" style="width: 600px;" />
+        
+         <div id="grid"></div> 
+    </div>
+
+    <script>
+            $(document).ready(function () {
+
+                var gridData = @Html.Raw(Json.Encode(ViewData["users"]));
+                var multiselectData = @Html.Raw(Json.Encode(ViewData["sites"]));
+
+                var multiselect = $("#multiselect").kendoMultiSelect({
+                    dataSource: multiselectData,
+                    placeholder: "Select Sites...",
+                    dataTextField: "Name",
+                    dataValueField: "Id",
+                }).data("kendoMultiSelect");
+
+               var grid = $("#grid").kendoGrid({
+
+                    autoBind: false,
+                    dataSource: {
+                        data: gridData,
+                        serverFiltering:false,
+                        pageSize: 20
+                    },
+                    height: 550,
+                    scrollable: true,
+                    sortable: true,
+                    filterable: true,
+                    pageable: {
+                        input: true,
+                        numeric: false
+                    },
+                    columns: [
+                        { field:"FullName", title:"Full Name", filterable: false},
+                        { field: "Site", title: "Site"}, //filterable: { multi: true}},
+                        { field: "SiteId", hidden: true },
+                        { field: "Role", title: "Role", filterable: false},
+                        { field: "IsStaff", hidden: true },
+                        { field: "UserId", title:"Link", 
+                        template: function (e) {
+                            var Id = e.UserId; 
+                            var SiteId = e.SiteId;
+                             if (e.IsStaff) {
+                                 return '<a href="/home/GetStaffList?id='+ Id +'">view</a>';
+                            }
+                            else {
+                                 return '<a href="/home/GetParentList?id='+ Id + '&siteId=' + SiteId + '">view</a>';
+                            }
+                        },
+                        width:160, filterable: false}, 
+                    ]
+               }).data("kendoGrid");
+
+               $("#multiselect").change(function(e) {
+
+                   var multiData = multiselect.dataSource.data();
+                   var selectedValues= $("#multiselect").data("kendoMultiSelect").value();
+
+                   grid.dataSource.filter({});
+
+                   for (var i = 0; i < multiData.length; i++) {
+                       var numberValue = multiData[i].Id;
+                       for (var j = 0; j < selectedValues.length; j++) {
+                           if (selectedValues[j] == numberValue) {
+                               var site = multiData[i].Name;
+                               applyFilter("Site", site);
+                           }
+                       }
+                   }
+               });
+
+               function applyFilter(filterField, filterValue) {
+
+                   var currFilterObj = grid.dataSource.filter();
+ 
+                   var currentFilters = currFilterObj ? currFilterObj.filters : [];
+
+                   if (filterValue != "0") {
+
+                       currentFilters.push({
+                           field: filterField,
+                           operator: "eq",
+                           value: filterValue
+                       });
+                   }
+
+                   grid.dataSource.filter({
+                       logic: "or",
+                       filters: currentFilters
+                   });
+               }
+            });
+
+    </script>
+</div>
+

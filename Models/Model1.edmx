@@ -1,0 +1,1732 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="KnownName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmergencyContact1Id" Type="int" />
+          <Property Name="EmergencyContact2Id" Type="int" />
+          <Property Name="YearEnrolled" Type="int" />
+          <Property Name="Ethnicity" Type="nvarchar" MaxLength="50" />
+          <Property Name="LanguageSpoken" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustodyDispute" Type="bit" />
+          <Property Name="CustodyDisputeDescription" Type="nvarchar(max)" />
+          <Property Name="WearsGlasses" Type="bit" />
+          <Property Name="HearingAid" Type="bit" />
+          <Property Name="Instructions" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="AllowPhotoTag" Type="bit" />
+          <Property Name="ClassRoom" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CYF" Type="bit" />
+          <Property Name="CYFDescription" Type="nvarchar(max)" />
+          <Property Name="IsVegererian" Type="bit" />
+          <Property Name="GlutenFree" Type="bit" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="ChildDoctorName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChildDoctorContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsTetanusImmunised" Type="bit" />
+          <Property Name="SwimmingCompetency" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Child_Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChildId" Type="int" Nullable="false" />
+          <Property Name="ConditionId" Type="int" />
+          <Property Name="OtherName" Type="nvarchar(max)" />
+          <Property Name="OtherTypeId" Type="int" />
+          <Property Name="Severity" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoctorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DoctorContact" Type="nvarchar" MaxLength="50" />
+          <Property Name="Symptoms" Type="nvarchar(max)" />
+          <Property Name="TreatmentDesc" Type="nvarchar(max)" />
+          <Property Name="MedicationDesc" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Child_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChildId" Type="int" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="CanPickup" Type="bit" />
+          <Property Name="ActionOnAppear" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="SignatureImage" Type="image" />
+          <Property Name="Landline" Type="nvarchar" MaxLength="50" />
+          <Property Name="Office" Type="nvarchar" MaxLength="50" />
+          <Property Name="OfficeExtension" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="StreetNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Suburb" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingStreetNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="BillingSuburb" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingPostcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillingCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="OscarNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReviewDate" Type="datetime" />
+          <Property Name="Relation" Type="nvarchar" MaxLength="50" />
+          <Property Name="HowHear" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lat" Type="varchar" MaxLength="50" />
+          <Property Name="Lng" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FirstAidCheck" Type="bit" Nullable="false" />
+          <Property Name="FirstAidExpireyDate" Type="datetime" />
+          <Property Name="PoliceCheck" Type="bit" Nullable="false" />
+          <Property Name="PoliceCheckExprieyDate" Type="datetime" />
+          <Property Name="Notes" Type="varchar(max)" />
+          <Property Name="DriverLicence" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Lookup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EntityName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Index" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Org">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="OldId" Type="int" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="200" />
+          <Property Name="TypeId" Type="int" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="TerritoryId" Type="int" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="Decile" Type="int" />
+          <Property Name="Roll" Type="int" />
+          <Property Name="RollApproved" Type="int" />
+          <Property Name="LeaseStart" Type="date" />
+          <Property Name="LeaseEnd" Type="date" />
+          <Property Name="LeasorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeaseCostFixed" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MeetingRoom" Type="nvarchar" MaxLength="100" />
+          <Property Name="BankAccNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsdNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="OscarNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="ExtraChargeType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExtraMinRate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BeforeThreshold" Type="int" />
+          <Property Name="AfterThreshold" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdateOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="HasSaved" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="LicenceStart" Type="datetime" />
+          <Property Name="LicenceEnd" Type="datetime" />
+          <Property Name="WeeklyAdminCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WeeklyRentCost" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CurrentRevenue" Type="money" />
+          <Property Name="CurrentExpenses" Type="money" />
+          <Property Name="CurrentBalance" Type="money" />
+          <Property Name="CurrentOverdueAmt" Type="money" />
+          <Property Name="MasterPin" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsChildPhotoEnabled" Type="bit" />
+          <Property Name="IsAuthPhotoEnabled" Type="bit" />
+          <Property Name="IsStaffPhotoEnabled" Type="bit" />
+          <Property Name="IsMultiSitePickupEnabled" Type="bit" />
+          <Property Name="IsFreeTrial" Type="bit" />
+          <Property Name="ExpiryDate" Type="datetime" />
+          <Property Name="StaffClockMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeaseCostPercentage" Type="int" />
+          <Property Name="IsPaymentGatewayEnabled" Type="bit" />
+          <Property Name="SiteBankAccNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="LicenceFee" Type="money" />
+          <Property Name="IsDashboardMsgEnabled" Type="bit" />
+          <Property Name="IsEMailMsgEnabled" Type="bit" />
+          <Property Name="IsSMSMsgEnabled" Type="bit" />
+          <Property Name="SiteContactPersone" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiteContactPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteContactEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="InvoiceDateSetting" Type="bit" Nullable="false" />
+          <Property Name="HeadOfficeLogo" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsWizard" Type="bit" />
+          <Property Name="LastStep" Type="int" />
+          <Property Name="IsProgrammePriceVisible" Type="bit" />
+          <Property Name="IsBookingPromoMsgVisible" Type="bit" />
+          <Property Name="BookingPromotionMsg" Type="nvarchar(max)" />
+          <Property Name="IsHolBookingPromoMsgVisible" Type="bit" />
+          <Property Name="HolBookingPromoMsg" Type="nvarchar(max)" />
+          <Property Name="IsSpecialBookingPromoMsgVisible" Type="bit" />
+          <Property Name="SpecialBookingPromoMsg" Type="nvarchar(max)" />
+          <Property Name="LoginURL" Type="nvarchar" MaxLength="550" />
+          <Property Name="ShowCustomisedBooking" Type="bit" Nullable="false" />
+          <Property Name="InvoiceDay" Type="int" />
+          <Property Name="InvoiceDueDays" Type="int" />
+          <Property Name="InvoiceGenDay" Type="int" Nullable="false" />
+          <Property Name="InvoiceGenWeek" Type="int" Nullable="false" />
+          <Property Name="InvoiceDueDay" Type="int" Nullable="false" />
+          <Property Name="InvoiceDueWeek" Type="int" Nullable="false" />
+          <Property Name="IsInvArrearBasedOnStart" Type="bit" />
+          <Property Name="CSSBillingPlanId" Type="int" />
+          <Property Name="CSSRevireDate" Type="datetime" />
+          <Property Name="CSSComment" Type="varchar(max)" />
+          <Property Name="BookingInfoRegular" Type="nvarchar" MaxLength="200" />
+          <Property Name="BookingInfoCasual" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsNew" Type="bit" />
+          <Property Name="CurrentStatus" Type="int" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+          <Property Name="AllowOverdueNotification" Type="bit" />
+          <Property Name="IsCreditCardPaymentDisabled" Type="bit" />
+          <Property Name="NewChildFlagDays" Type="int" />
+          <Property Name="ExclusionDayIsChargeable" Type="bit" />
+          <Property Name="IsAimyClient" Type="bit" />
+          <Property Name="CustomisedBookingCalendarReadOnly" Type="bit" />
+          <Property Name="ShowParentDOB" Type="bit" />
+          <Property Name="IsMergeReconcilInvoice" Type="bit" />
+          <Property Name="IsDeductByCCPayment" Type="bit" />
+          <Property Name="SiteLandlineNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteStreetNum" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="SiteSuburb" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="SitePostCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiteLatitude" Type="nvarchar" MaxLength="250" />
+          <Property Name="SiteLongitude" Type="nvarchar" MaxLength="250" />
+          <Property Name="TimeZoneIdentifier" Type="nvarchar" MaxLength="250" />
+          <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Language" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Org_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrgId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsInSubsidy" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsBlackListed" Type="bit" />
+          <Property Name="HasMissingSignature" Type="bit" />
+          <Property Name="IsEziDebitSetup" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EwayCustomerId" Type="bigint" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="50" />
+          <Property Name="CanLogin" Type="bit" Nullable="false" />
+          <Property Name="EmailConfirmationToken" Type="nvarchar(max)" />
+          <Property Name="IsEmailConfirmationValid" Type="bit" />
+          <Property Name="PasswordResetToken" Type="nvarchar(max)" />
+          <Property Name="IsPswResetTokenValid" Type="bit" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="StaffPayrollLatSyncOn" Type="datetime" />
+          <Property Name="StaffCostPerHour" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TotalHoursToBeSync" Type="int" />
+          <Property Name="Colour" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsOrgAdmin" Type="bit" Nullable="false" />
+          <Property Name="WorkStartDate" Type="datetime" />
+          <Property Name="WorkEndDate" Type="datetime" />
+          <Property Name="CurrentOrgId" Type="int" />
+          <Property Name="LastLogedOn" Type="datetime" />
+          <Property Name="RetryAttempt" Type="int" />
+          <Property Name="SysAdmin" Type="bit" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="PasswordBackup" Type="varchar" MaxLength="500" />
+          <Property Name="EmployeeId" Type="nvarchar" MaxLength="10" />
+          <Property Name="QuickRegistered" Type="bit" />
+          <Property Name="RequiredPasswordChange" Type="bit" />
+          <Property Name="IsKPFClient" Type="bit" />
+          <Property Name="IsAimyClient" Type="bit" />
+          <Property Name="IsIncompleteProfile" Type="bit" />
+          <Property Name="ShowFavourites" Type="bit" />
+          <Property Name="TimeZoneIdentifier" Type="nvarchar" MaxLength="250" />
+          <Property Name="Culture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Language" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImportReference" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ChildId" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="ContactTypeId" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Child_Condition_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="1" />
+          <End Role="Child_Condition" Type="Self.Child_Condition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Condition">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Contact_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+          <End Role="Child_Contact" Type="Self.Child_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Contact">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Contact_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Child_Contact" Type="Self.Child_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Contact">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_EmergencyContact1">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="EmergencyContact1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_EmergencyContact2">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="EmergencyContact2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Org" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="Org" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Org">
+          <End Role="Org" Type="Self.Org" Multiplicity="0..1" />
+          <End Role="Org1" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_User_Org">
+          <End Role="Org" Type="Self.Org" Multiplicity="1" />
+          <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org_User">
+              <PropertyRef Name="OrgId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org_User">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Child_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+          <End Role="User_Child" Type="Self.User_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Child">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Child_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User_Child" Type="Self.User_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Child">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Child_Condition" EntityType="Self.Child_Condition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Child_Contact" EntityType="Self.Child_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org" EntityType="Self.Org" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Org_User" EntityType="Self.Org_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Child" EntityType="Self.User_Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Contact" EntityType="Self.User_Contact" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Child_Condition_Child" Association="Self.FK_Child_Condition_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="Child_Condition" EntitySet="Child_Condition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Contact" Association="Self.FK_Child_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Contact_Child" Association="Self.FK_Child_Contact_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="Child_Contact" EntitySet="Child_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Contact_Contact" Association="Self.FK_Child_Contact_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Child_Contact" EntitySet="Child_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_EmergencyContact1" Association="Self.FK_Child_EmergencyContact1">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_EmergencyContact2" Association="Self.FK_Child_EmergencyContact2">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Lookup" Association="Self.FK_Contact_Lookup">
+            <End Role="Lookup" EntitySet="Lookup" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Contact" Association="Self.FK_Org_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Org" EntitySet="Org" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Lookup" Association="Self.FK_Org_Lookup">
+            <End Role="Lookup" EntitySet="Lookup" />
+            <End Role="Org" EntitySet="Org" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Org" Association="Self.FK_Org_Org">
+            <End Role="Org" EntitySet="Org" />
+            <End Role="Org1" EntitySet="Org" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_User_Org" Association="Self.FK_Org_User_Org">
+            <End Role="Org" EntitySet="Org" />
+            <End Role="Org_User" EntitySet="Org_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_User_User" Association="Self.FK_Org_User_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Org_User" EntitySet="Org_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Child_Child" Association="Self.FK_User_Child_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="User_Child" EntitySet="User_Child" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Child_User" Association="Self.FK_User_Child_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Child" EntitySet="User_Child" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact" Association="Self.FK_User_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_Contact" Association="Self.FK_User_Contact_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_Lookup" Association="Self.FK_User_Contact_Lookup">
+            <End Role="Lookup" EntitySet="Lookup" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_User" Association="Self.FK_User_Contact_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Lookup" Association="Self.FK_User_Lookup">
+            <End Role="Lookup" EntitySet="Lookup" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="SignatureImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Landline" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Office" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeExtension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StreetNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Suburb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingStreetNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BillingSuburb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingPostcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillingCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OscarNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewDate" Type="DateTime" Precision="3" />
+          <Property Name="Relation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HowHear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FirstAidCheck" Type="Boolean" Nullable="false" />
+          <Property Name="FirstAidExpireyDate" Type="DateTime" Precision="3" />
+          <Property Name="PoliceCheck" Type="Boolean" Nullable="false" />
+          <Property Name="PoliceCheckExprieyDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DriverLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Lookup" Relationship="Self.FK_Contact_Lookup" FromRole="Contact" ToRole="Lookup" />
+          <NavigationProperty Name="Orgs" Relationship="Self.FK_Org_Contact" FromRole="Contact" ToRole="Org" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Contact" FromRole="Contact" ToRole="User" />
+          <NavigationProperty Name="User_Contact" Relationship="Self.FK_User_Contact_Contact" FromRole="Contact" ToRole="User_Contact" />
+          <NavigationProperty Name="Children" Relationship="Model.FK_Child_Contact" FromRole="Contact" ToRole="Child" />
+          <NavigationProperty Name="Children1" Relationship="Model.FK_Child_EmergencyContact1" FromRole="Contact" ToRole="Child" />
+          <NavigationProperty Name="Children2" Relationship="Model.FK_Child_EmergencyContact2" FromRole="Contact" ToRole="Child" />
+          <NavigationProperty Name="Child_Contact" Relationship="Model.FK_Child_Contact_Contact" FromRole="Contact" ToRole="Child_Contact" />
+        </EntityType>
+        <EntityType Name="Lookup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EntityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Index" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contact_Lookup" FromRole="Lookup" ToRole="Contact" />
+          <NavigationProperty Name="Orgs" Relationship="Self.FK_Org_Lookup" FromRole="Lookup" ToRole="Org" />
+          <NavigationProperty Name="User_Contact" Relationship="Self.FK_User_Contact_Lookup" FromRole="Lookup" ToRole="User_Contact" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Lookup" FromRole="Lookup" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Org">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="OldId" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TypeId" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="TerritoryId" Type="Int32" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="Decile" Type="Int32" />
+          <Property Name="Roll" Type="Int32" />
+          <Property Name="RollApproved" Type="Int32" />
+          <Property Name="LeaseStart" Type="DateTime" Precision="0" />
+          <Property Name="LeaseEnd" Type="DateTime" Precision="0" />
+          <Property Name="LeasorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaseCostFixed" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MeetingRoom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsdNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OscarNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraChargeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraMinRate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BeforeThreshold" Type="Int32" />
+          <Property Name="AfterThreshold" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="HasSaved" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="LicenceStart" Type="DateTime" Precision="3" />
+          <Property Name="LicenceEnd" Type="DateTime" Precision="3" />
+          <Property Name="WeeklyAdminCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WeeklyRentCost" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CurrentRevenue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentExpenses" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentOverdueAmt" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MasterPin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsChildPhotoEnabled" Type="Boolean" />
+          <Property Name="IsAuthPhotoEnabled" Type="Boolean" />
+          <Property Name="IsStaffPhotoEnabled" Type="Boolean" />
+          <Property Name="IsMultiSitePickupEnabled" Type="Boolean" />
+          <Property Name="IsFreeTrial" Type="Boolean" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="StaffClockMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaseCostPercentage" Type="Int32" />
+          <Property Name="IsPaymentGatewayEnabled" Type="Boolean" />
+          <Property Name="SiteBankAccNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LicenceFee" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IsDashboardMsgEnabled" Type="Boolean" />
+          <Property Name="IsEMailMsgEnabled" Type="Boolean" />
+          <Property Name="IsSMSMsgEnabled" Type="Boolean" />
+          <Property Name="SiteContactPersone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiteContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceDateSetting" Type="Boolean" Nullable="false" />
+          <Property Name="HeadOfficeLogo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsWizard" Type="Boolean" />
+          <Property Name="LastStep" Type="Int32" />
+          <Property Name="IsProgrammePriceVisible" Type="Boolean" />
+          <Property Name="IsBookingPromoMsgVisible" Type="Boolean" />
+          <Property Name="BookingPromotionMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsHolBookingPromoMsgVisible" Type="Boolean" />
+          <Property Name="HolBookingPromoMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsSpecialBookingPromoMsgVisible" Type="Boolean" />
+          <Property Name="SpecialBookingPromoMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoginURL" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="ShowCustomisedBooking" Type="Boolean" Nullable="false" />
+          <Property Name="InvoiceDay" Type="Int32" />
+          <Property Name="InvoiceDueDays" Type="Int32" />
+          <Property Name="InvoiceGenDay" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceGenWeek" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDueDay" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDueWeek" Type="Int32" Nullable="false" />
+          <Property Name="IsInvArrearBasedOnStart" Type="Boolean" />
+          <Property Name="CSSBillingPlanId" Type="Int32" />
+          <Property Name="CSSRevireDate" Type="DateTime" Precision="3" />
+          <Property Name="CSSComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BookingInfoRegular" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BookingInfoCasual" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsNew" Type="Boolean" />
+          <Property Name="CurrentStatus" Type="Int32" />
+          <Property Name="Logo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AllowOverdueNotification" Type="Boolean" />
+          <Property Name="IsCreditCardPaymentDisabled" Type="Boolean" />
+          <Property Name="NewChildFlagDays" Type="Int32" />
+          <Property Name="ExclusionDayIsChargeable" Type="Boolean" />
+          <Property Name="IsAimyClient" Type="Boolean" />
+          <Property Name="CustomisedBookingCalendarReadOnly" Type="Boolean" />
+          <Property Name="ShowParentDOB" Type="Boolean" />
+          <Property Name="IsMergeReconcilInvoice" Type="Boolean" />
+          <Property Name="IsDeductByCCPayment" Type="Boolean" />
+          <Property Name="SiteLandlineNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteStreetNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SiteSuburb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SitePostCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiteLatitude" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SiteLongitude" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZoneIdentifier" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Culture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Org_Contact" FromRole="Org" ToRole="Contact" />
+          <NavigationProperty Name="Lookup" Relationship="Self.FK_Org_Lookup" FromRole="Org" ToRole="Lookup" />
+          <NavigationProperty Name="Org1" Relationship="Self.FK_Org_Org" FromRole="Org" ToRole="Org1" />
+          <NavigationProperty Name="Org2" Relationship="Self.FK_Org_Org" FromRole="Org1" ToRole="Org" />
+          <NavigationProperty Name="Org_User" Relationship="Self.FK_Org_User_Org" FromRole="Org" ToRole="Org_User" />
+        </EntityType>
+        <EntityType Name="Org_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrgId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsInSubsidy" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsBlackListed" Type="Boolean" />
+          <Property Name="HasMissingSignature" Type="Boolean" />
+          <Property Name="IsEziDebitSetup" Type="Boolean" />
+          <NavigationProperty Name="Org" Relationship="Self.FK_Org_User_Org" FromRole="Org_User" ToRole="Org" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Org_User_User" FromRole="Org_User" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EwayCustomerId" Type="Int64" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CanLogin" Type="Boolean" Nullable="false" />
+          <Property Name="EmailConfirmationToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsEmailConfirmationValid" Type="Boolean" />
+          <Property Name="PasswordResetToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPswResetTokenValid" Type="Boolean" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="StaffPayrollLatSyncOn" Type="DateTime" Precision="3" />
+          <Property Name="StaffCostPerHour" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalHoursToBeSync" Type="Int32" />
+          <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsOrgAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="WorkStartDate" Type="DateTime" Precision="3" />
+          <Property Name="WorkEndDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrentOrgId" Type="Int32" />
+          <Property Name="LastLogedOn" Type="DateTime" Precision="3" />
+          <Property Name="RetryAttempt" Type="Int32" />
+          <Property Name="SysAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordBackup" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="QuickRegistered" Type="Boolean" />
+          <Property Name="RequiredPasswordChange" Type="Boolean" />
+          <Property Name="IsKPFClient" Type="Boolean" />
+          <Property Name="IsAimyClient" Type="Boolean" />
+          <Property Name="IsIncompleteProfile" Type="Boolean" />
+          <Property Name="ShowFavourites" Type="Boolean" />
+          <Property Name="TimeZoneIdentifier" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Culture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImportReference" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_User_Contact" FromRole="User" ToRole="Contact" />
+          <NavigationProperty Name="Lookup" Relationship="Self.FK_User_Lookup" FromRole="User" ToRole="Lookup" />
+          <NavigationProperty Name="Org_User" Relationship="Self.FK_Org_User_User" FromRole="User" ToRole="Org_User" />
+          <NavigationProperty Name="User_Contact" Relationship="Self.FK_User_Contact_User" FromRole="User" ToRole="User_Contact" />
+          <NavigationProperty Name="User_Child" Relationship="Model.FK_User_Child_User" FromRole="User" ToRole="User_Child" />
+        </EntityType>
+        <EntityType Name="User_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="ContactTypeId" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_User_Contact_Contact" FromRole="User_Contact" ToRole="Contact" />
+          <NavigationProperty Name="Lookup" Relationship="Self.FK_User_Contact_Lookup" FromRole="User_Contact" ToRole="Lookup" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Contact_User" FromRole="User_Contact" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Contact_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="Org" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="Org" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="ContactTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Lookup">
+          <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_Org">
+          <End Role="Org" Type="Self.Org" Multiplicity="0..1" />
+          <End Role="Org1" Type="Self.Org" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_User_Org">
+          <End Role="Org" Type="Self.Org" Multiplicity="1" />
+          <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Org">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org_User">
+              <PropertyRef Name="OrgId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Org_User_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Org_User" Type="Self.Org_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Org_User">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Contact_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="User_Contact" Type="Self.User_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Contact">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UATEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Lookups" EntityType="Self.Lookup" />
+          <EntitySet Name="Orgs" EntityType="Self.Org" />
+          <EntitySet Name="Org_User" EntityType="Self.Org_User" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="User_Contact" EntityType="Self.User_Contact" />
+          <AssociationSet Name="FK_Contact_Lookup" Association="Self.FK_Contact_Lookup">
+            <End Role="Lookup" EntitySet="Lookups" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Contact" Association="Self.FK_Org_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Org" EntitySet="Orgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact" Association="Self.FK_User_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_Contact" Association="Self.FK_User_Contact_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Lookup" Association="Self.FK_Org_Lookup">
+            <End Role="Lookup" EntitySet="Lookups" />
+            <End Role="Org" EntitySet="Orgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_Lookup" Association="Self.FK_User_Contact_Lookup">
+            <End Role="Lookup" EntitySet="Lookups" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Lookup" Association="Self.FK_User_Lookup">
+            <End Role="Lookup" EntitySet="Lookups" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_Org" Association="Self.FK_Org_Org">
+            <End Role="Org" EntitySet="Orgs" />
+            <End Role="Org1" EntitySet="Orgs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_User_Org" Association="Self.FK_Org_User_Org">
+            <End Role="Org" EntitySet="Orgs" />
+            <End Role="Org_User" EntitySet="Org_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Org_User_User" Association="Self.FK_Org_User_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Org_User" EntitySet="Org_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Contact_User" Association="Self.FK_User_Contact_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User_Contact" EntitySet="User_Contact" />
+          </AssociationSet>
+          <EntitySet Name="User_Child" EntityType="Model.User_Child" />
+          <AssociationSet Name="FK_User_Child_User" Association="Model.FK_User_Child_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User_Child" EntitySet="User_Child" />
+          </AssociationSet>
+          <EntitySet Name="Children" EntityType="Model.Child" />
+          <AssociationSet Name="FK_Child_Contact" Association="Model.FK_Child_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_EmergencyContact1" Association="Model.FK_Child_EmergencyContact1">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_EmergencyContact2" Association="Model.FK_Child_EmergencyContact2">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Child_Child" Association="Model.FK_User_Child_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="User_Child" EntitySet="User_Child" />
+          </AssociationSet>
+          <EntitySet Name="Child_Condition" EntityType="Model.Child_Condition" />
+          <EntitySet Name="Child_Contact" EntityType="Model.Child_Contact" />
+          <AssociationSet Name="FK_Child_Condition_Child" Association="Model.FK_Child_Condition_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="Child_Condition" EntitySet="Child_Condition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Contact_Child" Association="Model.FK_Child_Contact_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="Child_Contact" EntitySet="Child_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Contact_Contact" Association="Model.FK_Child_Contact_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Child_Contact" EntitySet="Child_Contact" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User_Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ChildId" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Model.FK_User_Child_User" FromRole="User_Child" ToRole="User" />
+          <NavigationProperty Name="Child" Relationship="Model.FK_User_Child_Child" FromRole="User_Child" ToRole="Child" />
+        </EntityType>
+        <Association Name="FK_User_Child_User">
+          <End Type="Model.User" Role="User" Multiplicity="0..1" />
+          <End Type="Model.User_Child" Role="User_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Child">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KnownName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmergencyContact1Id" Type="Int32" />
+          <Property Name="EmergencyContact2Id" Type="Int32" />
+          <Property Name="YearEnrolled" Type="Int32" />
+          <Property Name="Ethnicity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageSpoken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustodyDispute" Type="Boolean" />
+          <Property Name="CustodyDisputeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WearsGlasses" Type="Boolean" />
+          <Property Name="HearingAid" Type="Boolean" />
+          <Property Name="Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="AllowPhotoTag" Type="Boolean" />
+          <Property Name="ClassRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CYF" Type="Boolean" />
+          <Property Name="CYFDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsVegererian" Type="Boolean" />
+          <Property Name="GlutenFree" Type="Boolean" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChildDoctorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChildDoctorContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsTetanusImmunised" Type="Boolean" />
+          <Property Name="SwimmingCompetency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="Model.FK_Child_Contact" FromRole="Child" ToRole="Contact" />
+          <NavigationProperty Name="Contact1" Relationship="Model.FK_Child_EmergencyContact1" FromRole="Child" ToRole="Contact" />
+          <NavigationProperty Name="Contact2" Relationship="Model.FK_Child_EmergencyContact2" FromRole="Child" ToRole="Contact" />
+          <NavigationProperty Name="User_Child" Relationship="Model.FK_User_Child_Child" FromRole="Child" ToRole="User_Child" />
+          <NavigationProperty Name="Child_Condition" Relationship="Model.FK_Child_Condition_Child" FromRole="Child" ToRole="Child_Condition" />
+          <NavigationProperty Name="Child_Contact" Relationship="Model.FK_Child_Contact_Child" FromRole="Child" ToRole="Child_Contact" />
+        </EntityType>
+        <Association Name="FK_Child_Contact">
+          <End Type="Model.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="Model.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_EmergencyContact1">
+          <End Type="Model.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="Model.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="EmergencyContact1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_EmergencyContact2">
+          <End Type="Model.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="Model.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="EmergencyContact2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Child_Child">
+          <End Type="Model.Child" Role="Child" Multiplicity="0..1" />
+          <End Type="Model.User_Child" Role="User_Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Child">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Child_Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChildId" Type="Int32" Nullable="false" />
+          <Property Name="ConditionId" Type="Int32" />
+          <Property Name="OtherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherTypeId" Type="Int32" />
+          <Property Name="Severity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorContact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Symptoms" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TreatmentDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MedicationDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Child" Relationship="Model.FK_Child_Condition_Child" FromRole="Child_Condition" ToRole="Child" />
+        </EntityType>
+        <EntityType Name="Child_Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChildId" Type="Int32" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="CanPickup" Type="Boolean" />
+          <Property Name="ActionOnAppear" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PinCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Relation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Child" Relationship="Model.FK_Child_Contact_Child" FromRole="Child_Contact" ToRole="Child" />
+          <NavigationProperty Name="Contact" Relationship="Model.FK_Child_Contact_Contact" FromRole="Child_Contact" ToRole="Contact" />
+        </EntityType>
+        <Association Name="FK_Child_Condition_Child">
+          <End Type="Model.Child" Role="Child" Multiplicity="1" />
+          <End Type="Model.Child_Condition" Role="Child_Condition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Condition">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Contact_Child">
+          <End Type="Model.Child" Role="Child" Multiplicity="0..1" />
+          <End Type="Model.Child_Contact" Role="Child_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Contact">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Contact_Contact">
+          <End Type="Model.Contact" Role="Contact" Multiplicity="0..1" />
+          <End Type="Model.Child_Contact" Role="Child_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child_Contact">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="UATEntities">
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="Model.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="SignatureImage" ColumnName="SignatureImage" />
+                <ScalarProperty Name="Landline" ColumnName="Landline" />
+                <ScalarProperty Name="Office" ColumnName="Office" />
+                <ScalarProperty Name="OfficeExtension" ColumnName="OfficeExtension" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="StreetNum" ColumnName="StreetNum" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Suburb" ColumnName="Suburb" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="BillingStreetNum" ColumnName="BillingStreetNum" />
+                <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+                <ScalarProperty Name="BillingSuburb" ColumnName="BillingSuburb" />
+                <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+                <ScalarProperty Name="BillingPostcode" ColumnName="BillingPostcode" />
+                <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+                <ScalarProperty Name="OscarNum" ColumnName="OscarNum" />
+                <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="HowHear" ColumnName="HowHear" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="FirstAidCheck" ColumnName="FirstAidCheck" />
+                <ScalarProperty Name="FirstAidExpireyDate" ColumnName="FirstAidExpireyDate" />
+                <ScalarProperty Name="PoliceCheck" ColumnName="PoliceCheck" />
+                <ScalarProperty Name="PoliceCheckExprieyDate" ColumnName="PoliceCheckExprieyDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DriverLicence" ColumnName="DriverLicence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lookups">
+            <EntityTypeMapping TypeName="Model.Lookup">
+              <MappingFragment StoreEntitySet="Lookup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orgs">
+            <EntityTypeMapping TypeName="Model.Org">
+              <MappingFragment StoreEntitySet="Org">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="OldId" ColumnName="OldId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="TerritoryId" ColumnName="TerritoryId" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="Decile" ColumnName="Decile" />
+                <ScalarProperty Name="Roll" ColumnName="Roll" />
+                <ScalarProperty Name="RollApproved" ColumnName="RollApproved" />
+                <ScalarProperty Name="LeaseStart" ColumnName="LeaseStart" />
+                <ScalarProperty Name="LeaseEnd" ColumnName="LeaseEnd" />
+                <ScalarProperty Name="LeasorName" ColumnName="LeasorName" />
+                <ScalarProperty Name="LeaseCostFixed" ColumnName="LeaseCostFixed" />
+                <ScalarProperty Name="MeetingRoom" ColumnName="MeetingRoom" />
+                <ScalarProperty Name="BankAccNum" ColumnName="BankAccNum" />
+                <ScalarProperty Name="MsdNum" ColumnName="MsdNum" />
+                <ScalarProperty Name="OscarNum" ColumnName="OscarNum" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ExtraChargeType" ColumnName="ExtraChargeType" />
+                <ScalarProperty Name="ExtraMinRate" ColumnName="ExtraMinRate" />
+                <ScalarProperty Name="BeforeThreshold" ColumnName="BeforeThreshold" />
+                <ScalarProperty Name="AfterThreshold" ColumnName="AfterThreshold" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="HasSaved" ColumnName="HasSaved" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="LicenceStart" ColumnName="LicenceStart" />
+                <ScalarProperty Name="LicenceEnd" ColumnName="LicenceEnd" />
+                <ScalarProperty Name="WeeklyAdminCost" ColumnName="WeeklyAdminCost" />
+                <ScalarProperty Name="WeeklyRentCost" ColumnName="WeeklyRentCost" />
+                <ScalarProperty Name="CurrentRevenue" ColumnName="CurrentRevenue" />
+                <ScalarProperty Name="CurrentExpenses" ColumnName="CurrentExpenses" />
+                <ScalarProperty Name="CurrentBalance" ColumnName="CurrentBalance" />
+                <ScalarProperty Name="CurrentOverdueAmt" ColumnName="CurrentOverdueAmt" />
+                <ScalarProperty Name="MasterPin" ColumnName="MasterPin" />
+                <ScalarProperty Name="IsChildPhotoEnabled" ColumnName="IsChildPhotoEnabled" />
+                <ScalarProperty Name="IsAuthPhotoEnabled" ColumnName="IsAuthPhotoEnabled" />
+                <ScalarProperty Name="IsStaffPhotoEnabled" ColumnName="IsStaffPhotoEnabled" />
+                <ScalarProperty Name="IsMultiSitePickupEnabled" ColumnName="IsMultiSitePickupEnabled" />
+                <ScalarProperty Name="IsFreeTrial" ColumnName="IsFreeTrial" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="StaffClockMethod" ColumnName="StaffClockMethod" />
+                <ScalarProperty Name="LeaseCostPercentage" ColumnName="LeaseCostPercentage" />
+                <ScalarProperty Name="IsPaymentGatewayEnabled" ColumnName="IsPaymentGatewayEnabled" />
+                <ScalarProperty Name="SiteBankAccNum" ColumnName="SiteBankAccNum" />
+                <ScalarProperty Name="LicenceFee" ColumnName="LicenceFee" />
+                <ScalarProperty Name="IsDashboardMsgEnabled" ColumnName="IsDashboardMsgEnabled" />
+                <ScalarProperty Name="IsEMailMsgEnabled" ColumnName="IsEMailMsgEnabled" />
+                <ScalarProperty Name="IsSMSMsgEnabled" ColumnName="IsSMSMsgEnabled" />
+                <ScalarProperty Name="SiteContactPersone" ColumnName="SiteContactPersone" />
+                <ScalarProperty Name="SiteContactPhone" ColumnName="SiteContactPhone" />
+                <ScalarProperty Name="SiteContactEmail" ColumnName="SiteContactEmail" />
+                <ScalarProperty Name="InvoiceDateSetting" ColumnName="InvoiceDateSetting" />
+                <ScalarProperty Name="HeadOfficeLogo" ColumnName="HeadOfficeLogo" />
+                <ScalarProperty Name="IsWizard" ColumnName="IsWizard" />
+                <ScalarProperty Name="LastStep" ColumnName="LastStep" />
+                <ScalarProperty Name="IsProgrammePriceVisible" ColumnName="IsProgrammePriceVisible" />
+                <ScalarProperty Name="IsBookingPromoMsgVisible" ColumnName="IsBookingPromoMsgVisible" />
+                <ScalarProperty Name="BookingPromotionMsg" ColumnName="BookingPromotionMsg" />
+                <ScalarProperty Name="IsHolBookingPromoMsgVisible" ColumnName="IsHolBookingPromoMsgVisible" />
+                <ScalarProperty Name="HolBookingPromoMsg" ColumnName="HolBookingPromoMsg" />
+                <ScalarProperty Name="IsSpecialBookingPromoMsgVisible" ColumnName="IsSpecialBookingPromoMsgVisible" />
+                <ScalarProperty Name="SpecialBookingPromoMsg" ColumnName="SpecialBookingPromoMsg" />
+                <ScalarProperty Name="LoginURL" ColumnName="LoginURL" />
+                <ScalarProperty Name="ShowCustomisedBooking" ColumnName="ShowCustomisedBooking" />
+                <ScalarProperty Name="InvoiceDay" ColumnName="InvoiceDay" />
+                <ScalarProperty Name="InvoiceDueDays" ColumnName="InvoiceDueDays" />
+                <ScalarProperty Name="InvoiceGenDay" ColumnName="InvoiceGenDay" />
+                <ScalarProperty Name="InvoiceGenWeek" ColumnName="InvoiceGenWeek" />
+                <ScalarProperty Name="InvoiceDueDay" ColumnName="InvoiceDueDay" />
+                <ScalarProperty Name="InvoiceDueWeek" ColumnName="InvoiceDueWeek" />
+                <ScalarProperty Name="IsInvArrearBasedOnStart" ColumnName="IsInvArrearBasedOnStart" />
+                <ScalarProperty Name="CSSBillingPlanId" ColumnName="CSSBillingPlanId" />
+                <ScalarProperty Name="CSSRevireDate" ColumnName="CSSRevireDate" />
+                <ScalarProperty Name="CSSComment" ColumnName="CSSComment" />
+                <ScalarProperty Name="BookingInfoRegular" ColumnName="BookingInfoRegular" />
+                <ScalarProperty Name="BookingInfoCasual" ColumnName="BookingInfoCasual" />
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="CurrentStatus" ColumnName="CurrentStatus" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="AllowOverdueNotification" ColumnName="AllowOverdueNotification" />
+                <ScalarProperty Name="IsCreditCardPaymentDisabled" ColumnName="IsCreditCardPaymentDisabled" />
+                <ScalarProperty Name="NewChildFlagDays" ColumnName="NewChildFlagDays" />
+                <ScalarProperty Name="ExclusionDayIsChargeable" ColumnName="ExclusionDayIsChargeable" />
+                <ScalarProperty Name="IsAimyClient" ColumnName="IsAimyClient" />
+                <ScalarProperty Name="CustomisedBookingCalendarReadOnly" ColumnName="CustomisedBookingCalendarReadOnly" />
+                <ScalarProperty Name="ShowParentDOB" ColumnName="ShowParentDOB" />
+                <ScalarProperty Name="IsMergeReconcilInvoice" ColumnName="IsMergeReconcilInvoice" />
+                <ScalarProperty Name="IsDeductByCCPayment" ColumnName="IsDeductByCCPayment" />
+                <ScalarProperty Name="SiteLandlineNumber" ColumnName="SiteLandlineNumber" />
+                <ScalarProperty Name="SiteStreetNum" ColumnName="SiteStreetNum" />
+                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+                <ScalarProperty Name="SiteSuburb" ColumnName="SiteSuburb" />
+                <ScalarProperty Name="SiteCity" ColumnName="SiteCity" />
+                <ScalarProperty Name="SitePostCode" ColumnName="SitePostCode" />
+                <ScalarProperty Name="SiteCountry" ColumnName="SiteCountry" />
+                <ScalarProperty Name="SiteLatitude" ColumnName="SiteLatitude" />
+                <ScalarProperty Name="SiteLongitude" ColumnName="SiteLongitude" />
+                <ScalarProperty Name="TimeZoneIdentifier" ColumnName="TimeZoneIdentifier" />
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Org_User">
+            <EntityTypeMapping TypeName="Model.Org_User">
+              <MappingFragment StoreEntitySet="Org_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrgId" ColumnName="OrgId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsInSubsidy" ColumnName="IsInSubsidy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="IsBlackListed" ColumnName="IsBlackListed" />
+                <ScalarProperty Name="HasMissingSignature" ColumnName="HasMissingSignature" />
+                <ScalarProperty Name="IsEziDebitSetup" ColumnName="IsEziDebitSetup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EwayCustomerId" ColumnName="EwayCustomerId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="CanLogin" ColumnName="CanLogin" />
+                <ScalarProperty Name="EmailConfirmationToken" ColumnName="EmailConfirmationToken" />
+                <ScalarProperty Name="IsEmailConfirmationValid" ColumnName="IsEmailConfirmationValid" />
+                <ScalarProperty Name="PasswordResetToken" ColumnName="PasswordResetToken" />
+                <ScalarProperty Name="IsPswResetTokenValid" ColumnName="IsPswResetTokenValid" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="StaffPayrollLatSyncOn" ColumnName="StaffPayrollLatSyncOn" />
+                <ScalarProperty Name="StaffCostPerHour" ColumnName="StaffCostPerHour" />
+                <ScalarProperty Name="TotalHoursToBeSync" ColumnName="TotalHoursToBeSync" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="IsOrgAdmin" ColumnName="IsOrgAdmin" />
+                <ScalarProperty Name="WorkStartDate" ColumnName="WorkStartDate" />
+                <ScalarProperty Name="WorkEndDate" ColumnName="WorkEndDate" />
+                <ScalarProperty Name="CurrentOrgId" ColumnName="CurrentOrgId" />
+                <ScalarProperty Name="LastLogedOn" ColumnName="LastLogedOn" />
+                <ScalarProperty Name="RetryAttempt" ColumnName="RetryAttempt" />
+                <ScalarProperty Name="SysAdmin" ColumnName="SysAdmin" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PasswordBackup" ColumnName="PasswordBackup" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="QuickRegistered" ColumnName="QuickRegistered" />
+                <ScalarProperty Name="RequiredPasswordChange" ColumnName="RequiredPasswordChange" />
+                <ScalarProperty Name="IsKPFClient" ColumnName="IsKPFClient" />
+                <ScalarProperty Name="IsAimyClient" ColumnName="IsAimyClient" />
+                <ScalarProperty Name="IsIncompleteProfile" ColumnName="IsIncompleteProfile" />
+                <ScalarProperty Name="ShowFavourites" ColumnName="ShowFavourites" />
+                <ScalarProperty Name="TimeZoneIdentifier" ColumnName="TimeZoneIdentifier" />
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="ImportReference" ColumnName="ImportReference" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Contact">
+            <EntityTypeMapping TypeName="Model.User_Contact">
+              <MappingFragment StoreEntitySet="User_Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="ContactTypeId" ColumnName="ContactTypeId" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Child">
+            <EntityTypeMapping TypeName="Model.User_Child">
+              <MappingFragment StoreEntitySet="User_Child">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Children">
+            <EntityTypeMapping TypeName="Model.Child">
+              <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SwimmingCompetency" ColumnName="SwimmingCompetency" />
+                <ScalarProperty Name="IsTetanusImmunised" ColumnName="IsTetanusImmunised" />
+                <ScalarProperty Name="ChildDoctorContact" ColumnName="ChildDoctorContact" />
+                <ScalarProperty Name="ChildDoctorName" ColumnName="ChildDoctorName" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="GlutenFree" ColumnName="GlutenFree" />
+                <ScalarProperty Name="IsVegererian" ColumnName="IsVegererian" />
+                <ScalarProperty Name="CYFDescription" ColumnName="CYFDescription" />
+                <ScalarProperty Name="CYF" ColumnName="CYF" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="ClassRoom" ColumnName="ClassRoom" />
+                <ScalarProperty Name="AllowPhotoTag" ColumnName="AllowPhotoTag" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="HearingAid" ColumnName="HearingAid" />
+                <ScalarProperty Name="WearsGlasses" ColumnName="WearsGlasses" />
+                <ScalarProperty Name="CustodyDisputeDescription" ColumnName="CustodyDisputeDescription" />
+                <ScalarProperty Name="CustodyDispute" ColumnName="CustodyDispute" />
+                <ScalarProperty Name="LanguageSpoken" ColumnName="LanguageSpoken" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="YearEnrolled" ColumnName="YearEnrolled" />
+                <ScalarProperty Name="EmergencyContact2Id" ColumnName="EmergencyContact2Id" />
+                <ScalarProperty Name="EmergencyContact1Id" ColumnName="EmergencyContact1Id" />
+                <ScalarProperty Name="KnownName" ColumnName="KnownName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Child_Condition">
+            <EntityTypeMapping TypeName="Model.Child_Condition">
+              <MappingFragment StoreEntitySet="Child_Condition">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="MedicationDesc" ColumnName="MedicationDesc" />
+                <ScalarProperty Name="TreatmentDesc" ColumnName="TreatmentDesc" />
+                <ScalarProperty Name="Symptoms" ColumnName="Symptoms" />
+                <ScalarProperty Name="DoctorContact" ColumnName="DoctorContact" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="OtherTypeId" ColumnName="OtherTypeId" />
+                <ScalarProperty Name="OtherName" ColumnName="OtherName" />
+                <ScalarProperty Name="ConditionId" ColumnName="ConditionId" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Child_Contact">
+            <EntityTypeMapping TypeName="Model.Child_Contact">
+              <MappingFragment StoreEntitySet="Child_Contact">
+                <ScalarProperty Name="Relation" ColumnName="Relation" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ActionOnAppear" ColumnName="ActionOnAppear" />
+                <ScalarProperty Name="CanPickup" ColumnName="CanPickup" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

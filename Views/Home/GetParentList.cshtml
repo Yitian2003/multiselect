@@ -1,0 +1,85 @@
+﻿@model DataTrans.Models.ParentViewModel
+
+@{
+    ViewBag.Title = "ShowParentDetails";
+}
+
+<h2>Show Parent Details</h2>
+<ul class="list-group">
+    <li class="list-group-item"><b>Full Name:</b>@Model.FullName</li>
+    <li class="list-group-item"><b>Address:</b>@Model.Address</li>
+
+    <li class="list-group-item"><b>Secondary Parent:</b>@Model.Parent2</li>
+</ul>
+
+<h4><b>Children Details</b></h4>
+<ul class="list-group">
+ 
+    @foreach (var item in @Model.ChildList as IEnumerable<DataTrans.Models.ChildViewModel>)
+    {
+        <li class="list-group-item"><b>Name:</b><a href="/home/GetChildList/?id=@item.ChildId">@item.ChildName</a></li>
+        <li class="list-group-item"></li>
+
+    }
+ 
+</ul>
+
+<div>
+    
+    <a href="/home/Booking?id=@Model.SiteId">
+        <input type="button" value="View Booking" />
+    </a>
+</div>
+
+
+
+
+
+    @*ViewBag.Title = "Index";
+}
+<div>
+    <div>
+        <div id="info-display"></div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready (function() {
+
+        var parentData = @Html.Raw(Json.Encode(ViewData["parents"]));
+
+       $("#info-display").kendoGrid({
+           dataSource: {
+               data: parentData,
+               pageSize: 10
+           },
+           height: 550,
+           scrollable: true,
+           sortable: true,
+           filterable: true,
+           pageable: {
+               input: true,
+               numeric: false
+           },
+            columns: [
+                { field: "Id", title: "ID", hidden: true },
+                { field: "FullName", title: "Full Name" },
+                { field: "Address", title: "Address"},
+                { field: "Parent2", title: "Secondary Parent" },
+                { field: "ChildList", title: "Child List", 
+                template: kendo.template($("#links-column-template").html())
+                },
+            ]
+        }).data("kendoGrid");
+
+    });
+    </script>
+
+    <script id="links-column-template" type="text/x-kendo-template">
+        #for(var i=0;i<ChildList.length;i++) { #
+    <a href="/home/GetStaffList?id=">#=ChildList[i].ChildName #</a>
+    # if (i<ChildList.length-1) { #
+        <span>,</span>
+    #}}#
+    </script>
+
+</div>*@

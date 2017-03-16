@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <div>
+        <div id="info-display"></div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready (function() {
+
+        var staffData = @Html.Raw(Json.Encode(ViewData["staffs"]));
+
+       $("#info-display").kendoGrid({
+           dataSource: {
+               data: staffData,
+               pageSize: 1
+           },
+           height: 250,
+            sortable: true,
+            pageable: false,
+            columns: [
+                { field: "Id", title: "ID", hidden: true },
+                { field: "Name", title: "Full Name" },
+                { field: "Address", title: "Address"},
+                { field: "Mobile", title: "Mobile" },
+                { field: "PoliceCheck", title: "Police Check"},
+                { field: "EmergencyList", title: "Emergency Contact Detail", 
+                template: kendo.template($("#ListOfEmergency").html())},                    
+            ]
+        }).data("kendoGrid");
+
+    });
+    </script>
+
+    <script id="ListOfEmergency" type="text/x-kendo-template">
+        #for(var i=0; i < EmergencyList.length; i++) { #
+        # if(i == 0){  #
+        #: EmergencyList[i].EmergencyName #
+        # } else { #
+        #: " | " + EmergencyList[i].EmergencyName #
+        #}} #
+    </script>
+
+</div>
