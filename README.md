@@ -4,6 +4,6 @@ Multiselect and Grid, connect to remote ms sql
 Demo MVC connecting to remote database server and usingKendo UI: Grid and Multi-select
 </br>
 <br>
-![alt tag]()
+![alt tag](https://github.com/Yitian2003/multiselect/blob/master/multiselect_grid.gif)
 
 </br>
